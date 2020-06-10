@@ -1,0 +1,14 @@
+1> không đặt dự án trong các thư mục chưa tiếng việt
+2> chỉ làm phần công việc của mình không được sửa code của người khác, nếu muốn sửa phải thông báo
+3> trước khi commit & push lên thì phải chạy test trước trành trường hợp lỗi nhưng vẫn đăng
+4> trước khi làm việc vs dự án chuột phải -> TortoiseGit -> pull
+5> Các bước tải dự án về :
+	b1: join vào dự án(nhớ xem kỹ tránh join nhầm)
+	b2: ấn vào clone or dowload copy link
+	b3: tạo thư mục để chứa dự án
+	b4: chuột phải vào thư mục vừa tạo chọn Git clone -> gán đường link ở b2 vào(nếu chưa copy) -> ok rồi chờ tải về
+5> Các bước commit & push dự án 
+	b1: chọn vào thư mục chưa file cần commit
+	b2: chuột phải -> TortoiseGit -> Add -> ok -> commit
+	b3: hiện ra cửa sổ có mục nhập text commit thì nhập vào rồi chọn commit & push rồi chờ đăng
+
