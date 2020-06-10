@@ -78,19 +78,37 @@
             <div class="form-group">
                 <label for="InputUsername">Username</label>
                 <input type="text" name="nUser" class="form-control" id="InputUsername" required
-                       placeholder="Enter your username">
+                       placeholder="">
             </div>
             <div class="form-group">
                 <label for="InputPassword">Password</label>
                 <input type="password" name="nPass" class="form-control" id="InputPassword" required
-                       placeholder="Enter your password">
+                       placeholder="">
             </div>
-            <div id="ConfirmPassword" class="form-group">
-                <label for="InputConfirmPassword">Confirm Password</label>
-                <input type="password" name="cfPass" class="form-control" id="InputConfirmPassword" required
-                       placeholder="Enter your password">
-                <span id='message'></span>
+
+            <div class="form-group">
+                <label for="InputName">Tên nhân viên</label>
+                <input type="text" name="nName" class="form-control" id="InputName" required
+                       placeholder="">
             </div>
+
+            <div class="form-group">
+                <label for="InputPhone">Số điện thoại</label>
+                <input type="text" name="nPhone" class="form-control" id="InputPhone" required
+                       placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="InputAddress">Địa chỉ</label>
+                <input type="text" name="nAddress" class="form-control" id="InputAddress" required
+                       placeholder="">
+            </div>
+<!--            <div id="ConfirmPassword" class="form-group">-->
+<!--                <label for="InputConfirmPassword">Confirm Password</label>-->
+<!--                <input type="password" name="cfPass" class="form-control" id="InputConfirmPassword" required-->
+<!--                       placeholder="Enter your password">-->
+<!--                <span id='message'></span>-->
+<!--            </div>-->
             <br>
             <div class="row justify-content-center">
                 <div class="col-4">
@@ -181,12 +199,12 @@
     </div>
 </div>
 <script>
-    $('#InputPassword, #InputConfirmPassword').on('keyup', function () {
-        if ($('#InputPassword').val() == $('#InputConfirmPassword').val()) {
-            $('#message').html('Matching').css('color', 'green');
-        } else
-            $('#message').html('Not Matching').css('color', 'red');
-    });
+    // $('#InputPassword, #InputConfirmPassword').on('keyup', function () {
+    //     if ($('#InputPassword').val() == $('#InputConfirmPassword').val()) {
+    //         $('#message').html('Matching').css('color', 'green');
+    //     } else
+    //         $('#message').html('Not Matching').css('color', 'red');
+    // });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

@@ -91,14 +91,19 @@ app.get('/createAdAc', async function (request, response) {
         if (sm == 1) {
             let nUser = request.query.nUser;
             let nPass = request.query.nPass;
+            let nName = request.query.nName;
+            let nPhone = request.query.nPhone;
+            let nAddress = request.query.nAddress;
 
             let findAdmin = await Admin.find({username: nUser}).lean();   //dk
-
 
             if (findAdmin.length <= 0) {
                 let newAdmin = new Admin({
                     username: nUser,
                     password: nPass,
+                    name: nName,
+                    phone: nPhone,
+                    address: nAddress,
                 });
                 let status = await newAdmin.save();
                 let admins = await Admin.find({}).lean();   //dk
@@ -117,7 +122,6 @@ app.get('/createAdAc', async function (request, response) {
                     });
                 }
             } else {
-
                 response.render('createAdAc', {
                     status: 'block',
                     textAlert: 'Tài khoản đã tồn tại.Mời tạo tài khoản khác !',
