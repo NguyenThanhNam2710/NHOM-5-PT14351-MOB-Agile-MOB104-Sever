@@ -152,53 +152,53 @@ app.get('/createAdAc', async function (request, response) {
             let nPhone = request.query.nPhone;
             let nAddress = request.query.nAddress;
 
-        console.log('edit ad ' + request.query.nId);
+            console.log('edit ad ' + request.query.nId);
 
-        let admins = await Admin.find({username: nUser, password: nPass}).lean();   //dk
+            let admins = await Admin.find({username: nUser, password: nPass}).lean();   //dk
 
-        if (admins.length <= 0) {
-            // console.log(nId + "edit ad");
-            let status = await Admin.findByIdAndUpdate(request.query.nId, {
-                username: nUser,
-                password: nPass,
-                name: nName,
-                phone: nPhone,
-                address: nAddress,
-            });
-            let nAdmins = await Admin.find({}).lean();
-            if (status) {
-                response.render('createAdAc', {
-                    status: 'block',
-                    textAlert: 'Cập nhật tài khoản thành công.',
-                    data: nAdmins,
+            if (admins.length <= 0) {
+                // console.log(nId + "edit ad");
+                let status = await Admin.findByIdAndUpdate(request.query.nId, {
+                    username: nUser,
+                    password: nPass,
+                    name: nName,
+                    phone: nPhone,
+                    address: nAddress,
                 });
+                let nAdmins = await Admin.find({}).lean();
+                if (status) {
+                    response.render('createAdAc', {
+                        status: 'block',
+                        textAlert: 'Cập nhật tài khoản thành công.',
+                        data: nAdmins,
+                    });
+                } else {
+                    response.render('createAdAc', {
+                        status: 'block',
+                        textAlert: 'Cập nhật tài khoản thất bại.',
+                        data: nAdmins,
+                    });
+                }
             } else {
+                let nAdmins = await Admin.find({}).lean();
                 response.render('createAdAc', {
                     status: 'block',
-                    textAlert: 'Cập nhật tài khoản thất bại.',
+                    textAlert: 'Cập nhật tài khoản thất bại. Tài khoản đã tồn tại.',
                     data: nAdmins,
                 });
             }
+
         } else {
-            let nAdmins = await Admin.find({}).lean();
+            del = 0;
+            edit = 0;
             response.render('createAdAc', {
-                status: 'block',
-                textAlert: 'Cập nhật tài khoản thất bại. Tài khoản đã tồn tại.',
-                data: nAdmins,
+                status: 'none',
+                data: a,
             });
         }
-
-    } else {
-        del = 0;
-        edit = 0;
-        response.render('createAdAc', {
-            status: 'none',
-            data: a,
-        });
     }
-}
 });
-
+// form update admin
 app.get('/updateAdAc', async function (request, response) {
     let userAD = request.query.userAD;
     let passAD = request.query.passAD;
@@ -224,7 +224,6 @@ app.get('/getDL', async function (request, response) {
     response.render('getDL');
 });
 
-
 // nhận thông tin khách hàng để tạo tài khoản
 app.post('/postUser', async function (request, response) {
     let nPhone = request.body.phone;
@@ -249,34 +248,24 @@ app.post('/postUser', async function (request, response) {
 
 });
 // nhận thông tin giỏ hàng để thêm vào database
-app.post('/postPost', async function (request, response) {
-    let user = request.body.user;
-    let productID = request.body.productID;
-    let name = request.body.name;
-    let price = request.body.price;
-    let description = request.body.description;
-    let type = request.body.type;
-    let sl = request.body.sl;
-    let image = request.body.image;
+app.post('/postUpdateUserPass', async function (request, response) {
 
+    let nPhone = request.body.nPhone;
+    let nPassword = request.body.nPassword;
 
-    let newCart = new Cart({
-        user: user,
-        productID: productID,
-        name: name,
-        price: price,
-        image: image,
-        description: description,
-        type: type,
-        sl: sl,
+    let searchUser = await User.find({phone: nPhone}).lean();
+
+    let update = await User.findOneAndUpdate(nPhone, {
+        password: nPassword,
     });
-    let status = await newCart.save();
-    if (status) {
-        response.send(newCart)
-    } else {
-        response.send('Them thất bại.')
-    }
 
+
+    let nUser = await User.find({}).lean();
+    if (update) {
+        response.send(nUser)
+    } else {
+        response.send('Update thất bại.' + nPhone + ' , ' + searchUser.fullName + ' , ' + nPassword + ' , ' + searchUser.password2)
+    }
 
 });
 

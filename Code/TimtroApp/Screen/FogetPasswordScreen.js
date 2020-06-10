@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }) {
               const element = array[index];
               if (phone == element.phone) {
                 if (password2 == element.password2) {
-                  navigation.navigate('Change');
+                  navigation.navigate('Change',{phone:phone});
                   setPassword2('');
                   login = 1;
                 } else {
