@@ -128,6 +128,7 @@ app.get('/createAdAc', async function (request, response) {
                     data: a,
                 });
             }
+            //xóa nhân viên
         } else if (del == 1) {
             console.log('del ad ' + request.query.idAD);
             let status = await Admin.findByIdAndDelete(request.query.idAD);
