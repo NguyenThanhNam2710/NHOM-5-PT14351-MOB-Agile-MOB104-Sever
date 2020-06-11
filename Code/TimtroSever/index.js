@@ -203,9 +203,9 @@ app.get('/updateAdAc', async function (request, response) {
     let userAD = request.query.userAD;
     let passAD = request.query.passAD;
     let idAD = request.query.idAD;
-    // let nName = request.query.nName;
-    // let nPhone = request.query.nPhone;
-    // let nAddress = request.query.nAddress;
+    let nName = request.query.nameAD;
+    let nPhone = request.query.phoneAD;
+    let nAddress = request.query.addressAD;
     // let admins = await Admin.find({username: userAD, password: passAD}).lean();   //dk
     response.render('updateAdAc', {
         status: 'none',
@@ -215,6 +215,9 @@ app.get('/updateAdAc', async function (request, response) {
         // name:admins.name,
         // phone:admins.phone,
         // address:admins.address,
+        name:nName,
+        phone:nPhone,
+        address:nAddress,
     });
 
 });
