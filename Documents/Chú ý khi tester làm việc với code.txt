@@ -1,0 +1,7 @@
+Chú ý:
+	Làm việc với TimtroSever: Chỉ được mở chạy bài, xem code không được thay đổi code hay sửa gì vào code.
+	Làm việc với TimtroApp: Thay toàn bộ địa chỉ ip trong app thành địa chỉ ip trên máy của mình, ngoài ra không được thay đổi bất cứ gì.
+		(file Tài liệu code trong thư mục Document có hướng dẫn lấy địa chỉ ip và vị trí của chúng trên các file)
+	Khi tester trước khi commit bắt buộc phải chuột phải vào lần lượt 2 thư mục trên(TimtroSever, TimtroApp) chọn TortoiseGit -> Revert-> ok
+	Khi đến phần commit có phần nhập nội dung làm việc của mình, ở bảng bên dưới đó chỉ chọn các mục liên quan đến thư mục Tester, các thư mục khác bỏ tích và commit lên
+	
