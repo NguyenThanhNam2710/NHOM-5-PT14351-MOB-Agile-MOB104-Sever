@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image, Alert } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
-export default function HomeScreen({ route, navigation }) {
+export default function ChangePasswordScreen({ route, navigation }) {
 
   const [newPassword, setNewPassword] = useState('');
   const [cfnewPassword, setcfNewPassword] = useState('');

@@ -259,7 +259,7 @@ app.post('/postUpdateUserPass', async function (request, response) {
 
     let searchUser = await User.find({phone: nPhone}).lean();
 
-    let update = await User.findOneAndUpdate(nPhone, {
+    let update = await User.findByIdAndUpdate(searchUser[0]._id, {
         password: nPassword,
     });
 
