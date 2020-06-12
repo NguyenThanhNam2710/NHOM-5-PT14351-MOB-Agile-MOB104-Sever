@@ -157,7 +157,7 @@ app.get('/createAdAc', async function (request, response) {
 
             let admins = await Admin.find({username: nUser, password: nPass}).lean();   //dk
 
-            if (admins.length <= 0) {
+            if (admins.length > 0) {
                 // console.log(nId + "edit ad");
                 let status = await Admin.findByIdAndUpdate(request.query.nId, {
                     username: nUser,
